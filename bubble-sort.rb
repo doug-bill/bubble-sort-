@@ -23,17 +23,21 @@ messy_array = [4,3,78,2,0,2]
    
   def bubble_sort(array)
     n = array.length
-    swapped = false
+    unsorted = true
 
-    while swapped == false do 
-      array.each_with_index do |num , i| 
-        if array[i - 1] > array[i]
-          array[i - 1], array[i] = array[i], array[i - 1]
-        swapped = true  
-        end   
-      end
+    while unsorted == true  do 
+      unsorted = false 
+        array.each_with_index do |num , i| 
+           
+          if i == 0
+            next
+          elsif array[i - 1] > array[i]
+              array[i - 1], array[i] = array[i], array[i - 1]
+              unsorted = true  
+          end        
+        end
       n = n - 1
-    end   
+    end 
     p array 
   end
 
